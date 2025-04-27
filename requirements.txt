@@ -1,3 +1,6 @@
 pandas
 yfinance
 streamlit
+seaborn
+datetime
+matplotlib
