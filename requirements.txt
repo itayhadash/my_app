@@ -4,3 +4,4 @@ streamlit
 seaborn
 datetime
 matplotlib
+financedatabase
