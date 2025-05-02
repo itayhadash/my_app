@@ -5,7 +5,7 @@ import datetime as dt
 import seaborn as sns
 import matplotlib.pyplot as plt
 from streamlit.runtime.scriptrunner import add_script_run_ctx
-financedatabase as fd
+import financedatabase as fd
 
 st.title("Finance Analysis App")
 
