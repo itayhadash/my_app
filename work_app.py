@@ -9,23 +9,7 @@ import financedatabase as fd
 
 st.title("Finance Analysis App")
 
-sp500_tickers = [
-    "MMM", "ABT", "ABBV", "ABMD", "ACN", "ATVI", "ADBE", "AMD", "AAP", "AES",
-    "AFL", "A", "APD", "AKAM", "ALK", "ALL", "GOOGL", "GOOG", "MO", "AMZN",
-    "AEE", "AAL", "AEP", "AXP", "AIG", "AMT", "AWK", "AMP", "ABC", "AME",
-    "AMGN", "APH", "ADI", "ANSS", "ANTM", "AON", "APA", "AAPL", "AMAT", "ADM",
-    "ADSK", "ALB", "ARE", "ALGN", "ALLE", "AGN", "ADS", "LNT", "LLY", "LMT",
-    "LOW", "LUMN", "LYB", "MTD", "MCK", "MDT", "MRK", "MET", "MPWR", "MS",
-    "MSCI", "MSFT", "MA", "MAA", "MCD", "MCK", "MDLZ", "MNST", "MCO", "MSI",
-    "NDAQ", "NEE", "NEM", "NFLX", "NKE", "NVDA", "NOC", "NTRS", "ODFL", "OMC",
-    "ORCL", "OTIS", "PCAR", "PEP", "PFE", "PH", "PHM", "PNC", "POOL", "PPG",
-    "PPL", "PRU", "PSA", "PVH", "QCOM", "RTX", "REG", "REGN", "RF", "RSG",
-    "SPGI", "SNA", "SO", "SPG", "SWK", "SYF", "SYK", "SYY", "T", "TDG",
-    "TEL", "TFX", "TJX", "TMO", "TMUS", "TRV", "TSLA", "TXN", "UNH", "UPS",
-    "USB", "V", "VFC", "VLO", "VMC", "WAB", "WMT", "WBD", "WEC", "WELL",
-    "WFC", "WM", "WMT", "XEL", "XYL", "ZBH", "ZION", "ZTS"
-]
-
+sp500_tickers = list(pd.Series(list(set(fd.Equities().select().index).union(set(fd.ETFs().select().index)))).dropna().values)
 select_name = st.selectbox("select S&P 500 stock",sp500_tickers)
 select_period = st.selectbox('select_period',['1mo','1d','1w','1y'])
 select_interval = st.selectbox('select_interval',['1mo','1d','1w','1y'])
