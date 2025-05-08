@@ -8,7 +8,6 @@ from streamlit.runtime.scriptrunner import add_script_run_ctx
 import financedatabase as fd
 
 st.title("Finance Analysis App")
-@st.cache_data
 
 sp500_df = pd.read_html("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies")[0]
 sp500_tickers = sp500_df['Symbol'].tolist()
