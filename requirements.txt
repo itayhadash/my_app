@@ -5,3 +5,4 @@ seaborn
 datetime
 matplotlib
 financedatabase
+lxml
