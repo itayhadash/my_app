@@ -10,7 +10,11 @@ import financedatabase as fd
 st.title("Finance Analysis App")
 @st.cache_data
 def load_tic():
-    return list(pd.Series(list(set(fd.Equities().select().index))))
+    sp500_df = pd.read_html("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies")[0]
+    sp500_tickers = sp500_df['Symbol'].tolist()
+    sp500_tickers = [ticker.replace('.', '-') for ticker in sp500_tickers]
+
+    return sp500_tickers
 
 
 sp500_tickers = load_tic()
